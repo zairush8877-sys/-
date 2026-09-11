@@ -1,0 +1,344 @@
+[
+  {
+    "kind": "reel",
+    "id": "2026-09-07-shkolnaya-baza",
+    "geometry": {
+      ".kicker": {
+        "x": 72,
+        "y": 300,
+        "width": 936,
+        "height": 33,
+        "bottom": 333
+      },
+      ".title": {
+        "x": 72,
+        "y": 359,
+        "width": 936,
+        "height": 241.5,
+        "bottom": 600.5
+      },
+      ".card": {
+        "x": 72,
+        "y": 630.5,
+        "width": 936,
+        "height": 666,
+        "bottom": 1296.5
+      },
+      ".foot": {
+        "x": 72,
+        "y": 1308,
+        "width": 936,
+        "height": 42,
+        "bottom": 1350
+      },
+      ".photo": {
+        "x": 72,
+        "y": 1380,
+        "width": 936,
+        "height": 270,
+        "bottom": 1650
+      },
+      ".audio-credit": null
+    }
+  },
+  {
+    "kind": "reel",
+    "id": "2026-09-14-tsya-tsya",
+    "geometry": {
+      ".kicker": {
+        "x": 72,
+        "y": 300,
+        "width": 936,
+        "height": 33,
+        "bottom": 333
+      },
+      ".title": {
+        "x": 72,
+        "y": 359,
+        "width": 936,
+        "height": 161,
+        "bottom": 520
+      },
+      ".card": {
+        "x": 72,
+        "y": 550,
+        "width": 936,
+        "height": 744,
+        "bottom": 1294
+      },
+      ".foot": {
+        "x": 72,
+        "y": 1308,
+        "width": 936,
+        "height": 42,
+        "bottom": 1350
+      },
+      ".photo": {
+        "x": 72,
+        "y": 1380,
+        "width": 936,
+        "height": 270,
+        "bottom": 1650
+      },
+      ".audio-credit": null
+    }
+  },
+  {
+    "kind": "reel",
+    "id": "2026-09-08-vyveski-zakon",
+    "geometry": {
+      ".kicker": {
+        "x": 72,
+        "y": 300,
+        "width": 936,
+        "height": 33,
+        "bottom": 333
+      },
+      ".title": {
+        "x": 72,
+        "y": 359,
+        "width": 936,
+        "height": 234.5625,
+        "bottom": 593.5625
+      },
+      ".card": {
+        "x": 72,
+        "y": 623.5625,
+        "width": 936,
+        "height": 662,
+        "bottom": 1285.5625
+      },
+      ".foot": {
+        "x": 72,
+        "y": 1308,
+        "width": 936,
+        "height": 42,
+        "bottom": 1350
+      },
+      ".photo": {
+        "x": 72,
+        "y": 1380,
+        "width": 936,
+        "height": 270,
+        "bottom": 1650
+      },
+      ".audio-credit": null
+    }
+  },
+  {
+    "kind": "reel",
+    "id": "2026-09-10-amfiboliya",
+    "geometry": {
+      ".kicker": {
+        "x": 72,
+        "y": 300,
+        "width": 936,
+        "height": 33,
+        "bottom": 333
+      },
+      ".title": {
+        "x": 72,
+        "y": 359,
+        "width": 936,
+        "height": 241.5,
+        "bottom": 600.5
+      },
+      ".card": {
+        "x": 72,
+        "y": 630.5,
+        "width": 936,
+        "height": 667,
+        "bottom": 1297.5
+      },
+      ".foot": {
+        "x": 72,
+        "y": 1308,
+        "width": 936,
+        "height": 42,
+        "bottom": 1350
+      },
+      ".photo": {
+        "x": 72,
+        "y": 1380,
+        "width": 936,
+        "height": 270,
+        "bottom": 1650
+      },
+      ".audio-credit": null
+    }
+  },
+  {
+    "kind": "story",
+    "id": "st-01",
+    "frame": 1,
+    "geometry": {
+      ".kicker": null,
+      ".title": null,
+      ".card": {
+        "x": 72,
+        "y": 540.40625,
+        "width": 936,
+        "height": 479.1875,
+        "bottom": 1019.59375
+      },
+      ".foot": {
+        "x": 0,
+        "y": 1612,
+        "width": 1080,
+        "height": 32,
+        "bottom": 1644
+      },
+      ".photo": {
+        "x": 72,
+        "y": 1280,
+        "width": 936,
+        "height": 220,
+        "bottom": 1500
+      },
+      ".audio-credit": {
+        "x": 72,
+        "y": 1519.375,
+        "width": 936,
+        "height": 80.625,
+        "bottom": 1600
+      }
+    }
+  },
+  {
+    "kind": "story",
+    "id": "st-01",
+    "frame": 2,
+    "geometry": {
+      ".kicker": {
+        "x": 462.765625,
+        "y": 446.203125,
+        "width": 154.453125,
+        "height": 34,
+        "bottom": 480.203125
+      },
+      ".title": null,
+      ".card": {
+        "x": 72,
+        "y": 446.203125,
+        "width": 936,
+        "height": 667.59375,
+        "bottom": 1113.796875
+      },
+      ".foot": {
+        "x": 0,
+        "y": 1612,
+        "width": 1080,
+        "height": 32,
+        "bottom": 1644
+      },
+      ".photo": {
+        "x": 72,
+        "y": 1280,
+        "width": 936,
+        "height": 220,
+        "bottom": 1500
+      },
+      ".audio-credit": {
+        "x": 72,
+        "y": 1519.375,
+        "width": 936,
+        "height": 80.625,
+        "bottom": 1600
+      }
+    }
+  },
+  {
+    "kind": "story",
+    "id": "st-02",
+    "frame": 1,
+    "geometry": {
+      ".kicker": {
+        "x": 454.1875,
+        "y": 574.40625,
+        "width": 171.609375,
+        "height": 34,
+        "bottom": 608.40625
+      },
+      ".title": null,
+      ".card": {
+        "x": 72,
+        "y": 574.40625,
+        "width": 936,
+        "height": 411.1875,
+        "bottom": 985.59375
+      },
+      ".foot": {
+        "x": 0,
+        "y": 1612,
+        "width": 1080,
+        "height": 32,
+        "bottom": 1644
+      },
+      ".photo": {
+        "x": 72,
+        "y": 1280,
+        "width": 936,
+        "height": 220,
+        "bottom": 1500
+      },
+      ".audio-credit": {
+        "x": 72,
+        "y": 1519.375,
+        "width": 936,
+        "height": 80.625,
+        "bottom": 1600
+      }
+    }
+  },
+  {
+    "kind": "story",
+    "id": "st-02",
+    "frame": 2,
+    "geometry": {
+      ".kicker": {
+        "x": 454.1875,
+        "y": 557.84375,
+        "width": 171.609375,
+        "height": 34,
+        "bottom": 591.84375
+      },
+      ".title": null,
+      ".card": {
+        "x": 72,
+        "y": 557.84375,
+        "width": 936,
+        "height": 444.3125,
+        "bottom": 1002.15625
+      },
+      ".foot": {
+        "x": 0,
+        "y": 1612,
+        "width": 1080,
+        "height": 32,
+        "bottom": 1644
+      },
+      ".photo": {
+        "x": 72,
+        "y": 1280,
+        "width": 936,
+        "height": 220,
+        "bottom": 1500
+      },
+      ".audio-credit": {
+        "x": 72,
+        "y": 1519.375,
+        "width": 936,
+        "height": 80.625,
+        "bottom": 1600
+      }
+    }
+  },
+  {
+    "kind": "audio",
+    "file": "reel-light-music.mp4",
+    "track": "Carefree",
+    "credit": "Carefree — Kevin MacLeod (incompetech.com). CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Фрагмент обрезан и сведён с видео.",
+    "meanVolume": "-25.7 dB",
+    "maxVolume": "-9.1 dB"
+  }
+]

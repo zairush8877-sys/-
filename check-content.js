@@ -21,8 +21,19 @@ const ROTATION = require('./rotation');
 let ffmpeg = 'ffmpeg';
 try { ffmpeg = require('ffmpeg-static') || 'ffmpeg'; } catch { /* системный */ }
 
-const QUEUE = JSON.parse(fs.readFileSync(path.join(__dirname, 'content', 'queue.json'), 'utf8'));
-const BANK = JSON.parse(fs.readFileSync(path.join(__dirname, 'content', 'stories.json'), 'utf8'));
+const CONTENT = path.resolve(process.env.MEDIA_CONTENT_DIR || path.join(__dirname, 'content'));
+const QUEUE = JSON.parse(fs.readFileSync(path.join(CONTENT, 'queue.json'), 'utf8'));
+// Prepared media never grant approval or change editorial dates.
+const preparedMedia = require('./prepared-media');
+const preparedIndex = preparedMedia.readIndex();
+for (const post of QUEUE.posts) {
+  if (post.status !== 'published' && preparedIndex.posts?.[post.id]) {
+    const ready = preparedMedia.validate(post).post;
+    for (const field of preparedMedia.MEDIA_FIELDS) delete post[field];
+    Object.assign(post, ready);
+  }
+}
+const BANK = JSON.parse(fs.readFileSync(path.join(CONTENT, 'stories.json'), 'utf8'));
 const onlyId = process.argv.slice(2).find(a => !a.startsWith('--'));
 
 const errors = [];
@@ -145,6 +156,15 @@ for (const p of QUEUE.posts) {
   if (!onlyId && p.status !== 'approved') continue;
 
   const isReels = /reels/i.test(p.format || '');
+  if (p.visualStyle === 'paper-collage') {
+    const keys = new Set([...(p.photos || []), ...(p.photo ? [p.photo] : []), ...(p.slides || []).flatMap(s => [...(s.photos || []), ...(s.photo ? [s.photo] : [])])]);
+    for (const key of keys) {
+      try {
+        const asset = require('./paper-collage').photo(key);
+        if (!fs.existsSync(path.join(__dirname, asset.file))) err(p.id, `нет фотографии ${key}`);
+      } catch (e) { err(p.id, e.message); }
+    }
+  }
   // Разборы ЕГЭ/ОГЭ законно состоят из школьного материала — паронимы и есть
   // задание 5. Фильтр примитивности бьёт по контенту для взрослых.
   // Школьное больше не брак поштучно — оно ограничено квотой, её считает
@@ -176,7 +196,7 @@ for (const p of QUEUE.posts) {
       err(p.id, `videoUrls: ${vids.length} роликов на ${slides.length} слайдов — звука в карусели не будет`);
     }
     for (const [i, url] of vids.entries()) {
-      const file = path.join(__dirname, 'content', 'images', path.basename(url));
+      const file = path.join(CONTENT, 'images', path.basename(url));
       if (!fs.existsSync(file)) { err(p.id, `слайд ${i + 1}: нет файла ${path.basename(file)}`); continue; }
       const a = probeAudio(file);
       if (!a.ok) err(p.id, `слайд ${i + 1}: ${a.why}`);
@@ -184,7 +204,7 @@ for (const p of QUEUE.posts) {
   }
 
   if (isReels) {
-    const video = path.join(__dirname, 'content', 'reels', `${p.id}.mp4`);
+    const video = path.join(CONTENT, 'reels', `${p.id}.mp4`);
     if (!fs.existsSync(video)) {
       err(p.id, 'нет файла content/reels/<id>.mp4 — ролик не отрендерен');
     } else {
@@ -228,7 +248,7 @@ for (const s of BANK.stories) {
   else if (!track.composer) err(s.id, `у трека ${track.file} нет composer — кадр выйдет без имени композитора`);
 
   for (const n of [1, 2]) {
-    const v = path.join(__dirname, 'content', 'stories', `${s.id}-${n}.mp4`);
+    const v = path.join(CONTENT, 'stories', `${s.id}-${n}.mp4`);
     if (!fs.existsSync(v)) { err(s.id, `нет видео ${s.id}-${n}.mp4 — прогоните node render-stories.js`); continue; }
     const a = probeAudio(v);
     if (!a.ok) err(s.id, `музыка в части ${n}: ${a.why}`);
@@ -240,15 +260,18 @@ for (const s of BANK.stories) {
 // «одна в неделю» — свойство расписания, а не отдельной публикации.
 checkSchoolQuota();
 
-// ---- Фотофоны из папки автора ----
-const bgIndex = path.join(__dirname, 'content', 'bg', 'index.json');
+// ---- Реальные фото с проверяемым происхождением ----
+const bgIndex = path.join(__dirname, 'assets', 'photos', 'index.json');
 const photos = fs.existsSync(bgIndex)
-  ? (JSON.parse(fs.readFileSync(bgIndex, 'utf8')).backgrounds || [])
-      .filter(b => path.basename(b.file).startsWith('foto-'))
+  ? (JSON.parse(fs.readFileSync(bgIndex, 'utf8')).photos || []).filter(p => p.active !== false)
   : [];
-if (!photos.length) errors.push('в ротации нет ни одной фотографии автора (foto-*.jpg)');
+if (!photos.length) errors.push('нет доступных реальных фотографий в assets/photos/index.json');
 for (const b of photos) {
   if (!fs.existsSync(path.join(__dirname, b.file))) errors.push(`фон ${b.file} есть в индексе, но файла нет`);
+  if (!b.source || !b.license || !b.author) errors.push(`фото ${b.file}: нужны источник, автор и лицензия`);
+}
+for (const track of JSON.parse(fs.readFileSync(path.join(__dirname, 'content/music/index.json'), 'utf8')).tracks.filter(t => t.active !== false)) {
+  if (track.attributionRequired && (!track.attribution || !track.licenseUrl)) errors.push(`музыка ${track.file}: нет полного кредита и ссылки на лицензию`);
 }
 
 for (const w of warnings) console.log(`⚠ ${w}`);

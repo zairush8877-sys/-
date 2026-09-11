@@ -1,0 +1,44 @@
+{
+  "account": "mairova_a_a",
+  "note": "Локальный пилот. Две альтернативные версии одного выпуска; выбрать одну. Дата публикации не назначена, разрешения на публикацию нет.",
+  "posts": [
+    {
+      "id": "2026-09-12-omographs-carousel",
+      "status": "pending",
+      "format": "Карусель",
+      "school": true,
+      "visualStyle": "paper-collage",
+      "alternativeGroup": "omographs-pilot",
+      "rubric": "Прочитайте вместе с ребёнком",
+      "caption": "А́тлас открывают, чтобы найти город, а атла́с выбирают для платья. Буквы совпадают, а ударение и значения разные. Прочитайте вместе с ребёнком три пары, затем попробуйте расставить ударения в предложениях на пятом слайде. Ответы — на шестом.\n\n#русскийязык #ударение #значениеслов",
+      "sources": ["https://gramota.ru/poisk?mode=slovari&query=атлас","https://gramota.ru/poisk?mode=slovari&query=ирис","https://gramota.ru/poisk?mode=slovari&query=хлопок"],
+      "slides": [
+        {"layout":"collage-cover","photo":"iris","kicker":"прочитайте вместе с ребёнком","title":"Одни буквы —\nразные слова","sub":"Три пары, в которых ударение\nменяет смысл.","note":"Начнём с простых примеров →"},
+        {"layout":"collage-pair","title":"Карты\nили ткань?","photos":["atlas","satin"],"meanings":[{"word":"а́тлас","definition":"сборник\nгеографических карт"},{"word":"атла́с","definition":"гладкая\nблестящая ткань"}],"note":"Буквы те же. Ударение другое."},
+        {"layout":"collage-pair","title":"Цветок\nили сладость?","photos":["iris"],"meanings":[{"word":"и́рис","definition":"цветок"},{"word":"ири́с","definition":"сорт конфет"}],"note":"В саду — и́рис. К чаю — ири́с."},
+        {"layout":"collage-pair","title":"Волокно\nили звук?","photos":["cotton"],"meanings":[{"word":"хло́пок","definition":"растение\nи его волокно"},{"word":"хлопо́к","definition":"короткий\nрезкий звук"}],"note":"Сначала смысл — потом ударение."},
+        {"layout":"collage-exercise","kicker":"маленькое задание","title":"Теперь —\nбез подсказок","lines":["В атласе нашли озеро.","На клумбе распустился ирис.","Раздался хлопок."],"note":"Прочитайте вслух. Ответы дальше →"},
+        {"layout":"collage-answer","kicker":"проверяем себя","title":"Ударение\nменяет смысл","lines":["В а́тласе нашли озеро.","На клумбе распустился и́рис.","Раздался хлопо́к."],"note":"В этих парах ударение\nзависит от значения.","footer":"три пары — шесть слов"}
+      ]
+    },
+    {
+      "id":"2026-09-12-omographs-reel",
+      "status":"pending",
+      "format":"Reels",
+      "school":true,
+      "visualStyle":"paper-collage",
+      "alternativeGroup":"omographs-pilot",
+      "photo":"cotton",
+      "photos":["atlas","iris","cotton"],
+      "rubric":"Прочитайте вместе с ребёнком",
+      "kicker":"прочитайте вместе с ребёнком",
+      "title":"Одни буквы —\nразные слова",
+      "heads":["Одно значение","Другое значение"],
+      "rows":[["а́тлас\nкарты","атла́с\nткань"],["и́рис\nцветок","ири́с\nсорт конфет"],["хло́пок\nволокно","хлопо́к\nзвук"]],
+      "rowSeconds":2.8,
+      "outroSeconds":5,
+      "caption":"Карты или ткань, цветок или сладость, волокно или звук? В этих трёх парах буквы совпадают, а ударение зависит от значения. Прочитайте слова вслух вместе с ребёнком: обе формы в каждой паре правильные.\n\n#русскийязык #ударение #значениеслов",
+      "sources":["https://gramota.ru/poisk?mode=slovari&query=атлас","https://gramota.ru/poisk?mode=slovari&query=ирис","https://gramota.ru/poisk?mode=slovari&query=хлопок"]
+    }
+  ]
+}

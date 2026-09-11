@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "posts": {
+    "2026-08-08-netslov": {
+      "kind": "post",
+      "sourceKey": "8bcb1b7a11e454397665e2999bcb9b84a4a0aa3a28c5dbe5da2eef4b51e36efc",
+      "renderedAt": "2026-09-11T17:58:18.486Z",
+      "publicationStatus": "export_only",
+      "assets": [
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/-/main/content/images/2026-08-08-netslov-1.jpg",
+          "file": "2026-08-08-netslov-1.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-08-08-netslov-1.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "ff8b26d8b8fb3ba86a5c108718cf3487eaf9be805fe63cc116335362431a591c",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "61020a6d32c0091f0a5ecc72230561f278e1c007d714b97654bc0432d3767215",
+            "sha256": "ff8b26d8b8fb3ba86a5c108718cf3487eaf9be805fe63cc116335362431a591c"
+          }
+        }
+      ]
+    },
+    "2026-09-06-slova-smenili-znachenie": {
+      "kind": "carousel_slides",
+      "sourceKey": "00436d10a57538ca515e48dc658c53281d9f82281b2876cec3445ab6b389a213",
+      "renderedAt": "2026-09-11T17:58:25.851Z",
+      "publicationStatus": "export_only",
+      "assets": [
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-06-slova-smenili-znachenie-1.jpg",
+          "file": "2026-09-06-slova-smenili-znachenie-1.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-06-slova-smenili-znachenie-1.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "18d8256fc0a6a88d4e39977f23d89c1c046c9f0bfc4c10e03f45840e9e325018",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "a8a558fa8ff4f62ddc5b1c92b65c7fa0b71f5439499eecf8708d4d79017906bb",
+            "sha256": "18d8256fc0a6a88d4e39977f23d89c1c046c9f0bfc4c10e03f45840e9e325018"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-06-slova-smenili-znachenie-2.jpg",
+          "file": "2026-09-06-slova-smenili-znachenie-2.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-06-slova-smenili-znachenie-2.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "1a2abad01ba33d58c06d2f5b252376afbacce8ca93a838925e38f141c967d2d3",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "9a4366433c7be4d4661e83ed1708eb8cb90be75a8c5337743bbed56ac66b39a4",
+            "sha256": "1a2abad01ba33d58c06d2f5b252376afbacce8ca93a838925e38f141c967d2d3"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-06-slova-smenili-znachenie-3.jpg",
+          "file": "2026-09-06-slova-smenili-znachenie-3.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-06-slova-smenili-znachenie-3.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "cde5ae6bd75000cdab5354dc31c058be21b3b02d300171c0170f521c8e23f10f",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "09f4e0b69bb1c5109b871d4036f82ae3eae98c179f27f69edd48b15fdf9b3a26",
+            "sha256": "cde5ae6bd75000cdab5354dc31c058be21b3b02d300171c0170f521c8e23f10f"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-06-slova-smenili-znachenie-4.jpg",
+          "file": "2026-09-06-slova-smenili-znachenie-4.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-06-slova-smenili-znachenie-4.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "35bff91998ddfe30f36a9b1772eb763736950b525d52807c5b3bfa8d5e212827",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "a95c9bf42f32802e748cc8a3a4cc0bb6fb3a4fc386c57cfa6deb035be59a809e",
+            "sha256": "35bff91998ddfe30f36a9b1772eb763736950b525d52807c5b3bfa8d5e212827"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-06-slova-smenili-znachenie-5.jpg",
+          "file": "2026-09-06-slova-smenili-znachenie-5.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-06-slova-smenili-znachenie-5.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "3b197fc75d4d0edc6f78461bef17e407bfdcdcd6c6a6cd169bbbd81eedcdc4dc",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "35635769945126cd5cd9aa0c39f6c058fc5467db811dde7f10e566716497cbc5",
+            "sha256": "3b197fc75d4d0edc6f78461bef17e407bfdcdcd6c6a6cd169bbbd81eedcdc4dc"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-06-slova-smenili-znachenie-6.jpg",
+          "file": "2026-09-06-slova-smenili-znachenie-6.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-06-slova-smenili-znachenie-6.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "7172a1b01898331a80f17d256dd276265b3b1d00c713f06bddeb2cc90ffd37ce",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "56cb8962f3b7983603b3819bf7916f5333a15b223077c5c067ef6f1b243b5488",
+            "sha256": "7172a1b01898331a80f17d256dd276265b3b1d00c713f06bddeb2cc90ffd37ce"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-06-slova-smenili-znachenie-7.jpg",
+          "file": "2026-09-06-slova-smenili-znachenie-7.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-06-slova-smenili-znachenie-7.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "ff14c27fc9de656cc4dc65c0e7619710d9d337b8da904e1d3afc7407eb42972a",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "dfaae62b5816e671ffcff9c09ea11aa31bf7385841bb5b82ea72143a31bdd076",
+            "sha256": "ff14c27fc9de656cc4dc65c0e7619710d9d337b8da904e1d3afc7407eb42972a"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-06-slova-smenili-znachenie-8.jpg",
+          "file": "2026-09-06-slova-smenili-znachenie-8.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-06-slova-smenili-znachenie-8.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "86ec9d60031f7325a2ad2448d363e656a1e1887ba4ffadaa29cb2056505246ab",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "a4097f445cf342f6fee490afd044dad0127902213f9a0f3401ab3e401add1fe8",
+            "sha256": "86ec9d60031f7325a2ad2448d363e656a1e1887ba4ffadaa29cb2056505246ab"
+          }
+        }
+      ]
+    },
+    "2026-09-03-defis": {
+      "kind": "reel_frame",
+      "sourceKey": "ceb1de54b119cb21853ad65dfd5ab86509f81e8ae7d824d136f048ba50104f63",
+      "renderedAt": "2026-09-11T17:58:26.105Z",
+      "publicationStatus": "export_only",
+      "assets": [
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reels/2026-09-03-defis-frame.jpg",
+          "file": "2026-09-03-defis-1.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-03-defis-1.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "f38474a4df2ce47240e43284eb06550c83daaee3573b5b867ab031ab5057b793",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1920,
+            "x": 174.375,
+            "y": 360,
+            "width": 731.25,
+            "height": 1300,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "7edb0944d13bef4cda7350b373aeb6c274e57d494f81fa9cbb2a3ecc0be5dfc7",
+            "sha256": "f38474a4df2ce47240e43284eb06550c83daaee3573b5b867ab031ab5057b793"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -12,6 +12,9 @@
  *   IG_ACCESS_TOKEN=... node publish.js              — опубликовать все approved-посты
  *   IG_ACCESS_TOKEN=... node publish.js --one        — одна публикация дня (ежедневный режим)
  *   IG_ACCESS_TOKEN=... node publish.js <id>         — опубликовать один пост
+ *   node publish.js --repost-audit                  — локальная сверка репостов, без API
+ *   node publish.js --repost <id> --dry-run          — состояние одного репоста, без API
+ *   IG_ACCESS_TOKEN=... node publish.js --repost <id> — явный повтор подтверждённо незавершённого репоста
  *
  * Требования к посту в очереди:
  *   status: "approved"
@@ -22,8 +25,11 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const repost = require('./repost-state');
 
-const QUEUE = path.join(__dirname, 'content', 'queue.json');
+const CONTENT = path.resolve(process.env.MEDIA_CONTENT_DIR || path.join(__dirname, 'content'));
+const QUEUE = path.join(CONTENT, 'queue.json');
 const API = 'https://graph.facebook.com/v23.0';
 const TOKEN = process.env.IG_ACCESS_TOKEN;
 
@@ -43,8 +49,30 @@ const recentLimit = Math.min(50, Number((recentArg || '').split('=')[1]) || 8);
 const audioCheck = args.includes('--audio-check');
 const onlyOne = args.includes('--one');   // ежедневный режим: одна публикация за запуск
 const onlyId = args.find(a => !a.startsWith('--'));
+const repostOnly = args.includes('--repost');
+const evidencePath = path.join(CONTENT, 'repost-evidence.json');
+const historicalEvidence = fs.existsSync(evidencePath) ? JSON.parse(fs.readFileSync(evidencePath, 'utf8')) : {};
 
-if (!TOKEN) {
+if (args.includes('--repost-audit')) {
+  console.log(JSON.stringify(repost.audit(queueRaw, historicalEvidence), null, 2));
+  process.exit(0);
+}
+if (repostOnly && !onlyId) {
+  console.error('Для репоста укажите один конкретный ID. Массового повтора нет.');
+  process.exit(1);
+}
+// Uses the sender's own media contract, before credentials, API calls or locks.
+if (args.includes('--validate-prepared')) {
+  try {
+    const prepared = require('./prepared-media');
+    const targets = onlyId ? queueRaw.posts.filter(p => p.id === onlyId) : queueRaw.posts.filter(p => ['pending', 'approved'].includes(p.status));
+    if (onlyId && !targets.length) throw new Error(`Пост не найден: ${onlyId}`);
+    console.log(JSON.stringify(targets.map(post => prepared.validate(post).summary), null, 2));
+    process.exit(0);
+  } catch (e) { console.error(e.message); process.exit(1); }
+}
+
+if (!TOKEN && !dryRun) {
   console.error('Нет токена: задайте переменную окружения IG_ACCESS_TOKEN.');
   process.exit(1);
 }
@@ -146,7 +174,9 @@ function fullCaption(post) {
   const music = post.music && post.music.composer
     ? `♪ ${post.music.composer} — ${post.music.piece}`
     : '';
-  return [post.caption, music, tags].filter(Boolean).join('\n\n');
+  const attribution = post.music?.attribution;
+  const credits = [post.caption, music, attribution, tags].filter(Boolean);
+  return [...new Set(credits)].join('\n\n');
 }
 
 /**
@@ -166,28 +196,41 @@ function requireCaption(post) {
   }
 }
 
-/**
- * Репост публикации в сторис (правило автора): после каждого выхода в ленту
- * подписчики видят анонс и в сторис. Родной стикер «поделиться постом» через
- * API недоступен, поэтому в сторис уходит сама картинка: у Reels — финальный
- * кадр с таблицей, у поста — первый слайд. Ошибка репоста публикацию не
- * роняет: пост уже вышел, статус обязан записаться.
- */
-async function repostToStory(post) {
-  const image = post.videoUrl
-    ? assetUrl(post.videoUrl).replace(/\.mp4$/, '-frame.jpg')
-    : assetUrl((post.imageUrls || [])[0] || '');
-  if (!image) return;
+function saveQueue(queue) {
+  const tmp = `${QUEUE}.${process.pid}.tmp`;
+  fs.writeFileSync(tmp, JSON.stringify(queue, null, 2));
+  fs.renameSync(tmp, QUEUE);
+}
+
+/** Use only prepared vertical files; preserve every carousel slide. */
+async function repostToStory(post, queue) {
+  const manifestPath = path.join(CONTENT, 'reposts', 'index.json');
   try {
-    const { id } = await api('POST', `${IG_USER_ID}/media`, {
-      media_type: 'STORIES',
-      image_url: image,
+    const manifest = fs.existsSync(manifestPath) ? JSON.parse(fs.readFileSync(manifestPath, 'utf8')) : {};
+    const state = await repost.deliver(post, {
+      entry: manifest.posts?.[post.id], api, waitReady, userId: IG_USER_ID, assetUrl,
+      save: () => saveQueue(queue), log: message => console.log(`  ${message}`),
+      verifyAssets: async assets => {
+        for (const a of assets) {
+          if (path.basename(a.file) !== a.file) throw new Error('Некорректный путь репоста.');
+          const file = path.join(CONTENT, 'reposts', a.file);
+          const digest = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+          if (!fs.existsSync(file) || digest(fs.readFileSync(file)) !== a.sha256) throw new Error('Локальный кадр репоста изменился: пересоберите манифест.');
+          const { localSource } = require('./render-reposts');
+          if (digest(fs.readFileSync(localSource(a.sourceUrl, CONTENT))) !== a.geometry?.sourceSha256) throw new Error('Исходный кадр изменился: пересоберите репост.');
+          const response = await fetch(assetUrl(a.url), { signal: AbortSignal.timeout(20000) });
+          if (!response.ok || !/image\/jpeg/i.test(response.headers.get('content-type') || '')) throw new Error('Готовый кадр Stories ещё недоступен по публичной ссылке.');
+          if (digest(Buffer.from(await response.arrayBuffer())) !== a.sha256) throw new Error('На сервере другая версия кадра Stories: дождитесь обновления.');
+        }
+      },
     });
-    await waitReady(id, `${post.id} сторис-анонс`);
-    await api('POST', `${IG_USER_ID}/media_publish`, { creation_id: id });
-    console.log('  ✓ репост в сторис');
+    console.log(`  Репост: ${state.status}. Подтверждено ${state.items.filter(i => i.publishedMediaId).length}/${state.items.length} кадров.`);
+    if (state.status !== 'published') process.exitCode = 1;
+    return state;
   } catch (e) {
-    console.log(`  ⚠ репост в сторис не вышел: ${e.message}`);
+    saveQueue(queue);
+    process.exitCode = 1;
+    console.log(`  ⚠ репост требует внимания: ${e.message}`);
   }
 }
 
@@ -365,14 +408,31 @@ async function showAudioCheck(limit = 6) {
   }
 }
 
+let publicationLock;
 (async () => {
-  const me = await api('GET', IG_USER_ID, { fields: 'username,followers_count,media_count' });
-  console.log(`Токен действителен: @${me.username} — ${me.followers_count} подписчиков, ${me.media_count} публикаций`);
+  if (!dryRun) {
+    const me = await api('GET', IG_USER_ID, { fields: 'username,followers_count,media_count' });
+    console.log(`Токен действителен: @${me.username} — ${me.followers_count} подписчиков, ${me.media_count} публикаций`);
+  }
   if (audioCheck) { await showAudioCheck(); return; }
   if (recentOnly) { await showRecent(recentLimit); return; }
   if (checkOnly) return;
 
+  if (!dryRun) {
+    // Prevent overlapping local writers. After a crash, inspect state before removing the lock.
+    const lockPath = path.join(CONTENT, '.publish.lock');
+    const fd = fs.openSync(lockPath, 'wx');
+    fs.writeFileSync(fd, JSON.stringify({ pid: process.pid, startedAt: new Date().toISOString() }));
+    fs.closeSync(fd); publicationLock = lockPath;
+  }
   const queue = JSON.parse(fs.readFileSync(QUEUE, 'utf8'));
+  if (repostOnly) {
+    const post = queue.posts.find(p => p.id === onlyId);
+    if (!post) throw new Error(`Пост не найден: ${onlyId}`);
+    if (dryRun) console.log(JSON.stringify(repost.audit({ posts: [post] }, historicalEvidence), null, 2));
+    else await repostToStory(post, queue);
+    return;
+  }
 
   if (onlyOne && !onlyId) {
     const already = publishedToday(queue.posts);
@@ -411,6 +471,23 @@ async function showAudioCheck(limit = 6) {
   }
 
   for (const post of targets) {
+    if (post.status === 'published' || post.publishedMediaId) {
+      console.log(`Публикация ${post.id} уже подтверждена — повтор в ленту пропущен. Для незавершённой Stories используйте --repost ${post.id}.`);
+      continue;
+    }
+    if (post.status !== 'approved') throw new Error(`${post.id}: материал не одобрен; сборка не даёт разрешения на выпуск.`);
+    if (!post.date || post.date > moscowDate()) throw new Error(`${post.id}: дата выпуска ещё не наступила или не задана.`);
+    const prepared = require('./prepared-media');
+    const validated = prepared.validate(post);
+    for (const field of prepared.MEDIA_FIELDS) delete post[field];
+    Object.assign(post, validated.post);
+    if (!dryRun) {
+      // Check every public file before creating any feed or Stories container.
+      for (const a of [...validated.entry.files, ...validated.repost.assets]) {
+        const response = await fetch(assetUrl(a.url), { signal: AbortSignal.timeout(30000) });
+        if (!response.ok || prepared.sha(Buffer.from(await response.arrayBuffer())) !== a.sha256) throw new Error(`${post.id}: публичный файл ещё не соответствует сборке: ${a.url}`);
+      }
+    }
     const n = (post.imageUrls || []).length;
     console.log(`\n→ ${post.id} [${post.rubric}] ${post.videoUrl ? 'видео' : n + ' слайд(ов)'}`);
     if (post.format === 'Reels' && !post.videoUrl) {
@@ -426,15 +503,17 @@ async function showAudioCheck(limit = 6) {
         console.log('  ✗ нет imageUrls — публикация была бы отклонена');
         continue;
       }
-      console.log(`  (dry-run) Опубликовал бы ${post.videoUrl ? 'Reels' : n === 1 ? 'пост' : 'карусель'} с подписью ${fullCaption(post).length} симв.`);
+      console.log(`  (dry-run) Подготовлены ${post.videoUrl ? 'Reels' : n === 1 ? 'пост' : 'карусель'} с подписью ${fullCaption(post).length} симв. и ${validated.repost.assets.length} кадров Stories. Файлы и метаданные проверены локально; сеть и публикация не запускались.`);
       continue;
     }
     const mediaId = await publishPost(post);
     post.status = 'published';
     post.publishedMediaId = mediaId;
     post.publishedAt = new Date().toISOString();
-    fs.writeFileSync(QUEUE, JSON.stringify(queue, null, 2));
+    repost.initialize(post, true);
+    saveQueue(queue);
     console.log(`  ✓ Опубликовано, media id: ${mediaId}`);
-    await repostToStory(post);
+    await repostToStory(post, queue);
   }
-})().catch(e => { console.error('Ошибка:', e.message); process.exit(1); });
+})().catch(e => { console.error('Ошибка:', e.message); process.exitCode = 1; })
+  .finally(() => { if (publicationLock) fs.unlinkSync(publicationLock); });

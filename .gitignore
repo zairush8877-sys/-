@@ -1,2 +1,23 @@
 node_modules/
 content/pins/
+
+# Local credentials and machine state never belong in the shared project.
+.env
+.env.*
+!.env.example
+credentials.json
+secrets.json
+*.pem
+*.key
+*.p12
+*.pfx
+.publish.lock
+
+# Reproducible scratch output; keep final previews and validation reports.
+outputs/build-integration-2026-09-11/tools/
+outputs/build-integration-2026-09-11/run-*/
+outputs/build-integration-2026-09-11/*.sh
+outputs/style-review-2026-09-11/video-frames/
+outputs/pilot-2026-09-12/design/cover-debug.jpg
+outputs/pilot-2026-09-12/build*.log
+content/music/originals/

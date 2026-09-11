@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-09-11",
+  "scope": "Read-only historical workflow logs. These do not prove current visibility or rule out later manual reposts.",
+  "posts": {
+    "2026-09-03-defis": {
+      "feedMediaId": "18123015904896979",
+      "observedOn": "2026-09-04",
+      "result": "logged_success_without_story_id",
+      "runUrl": "https://github.com/zairush8877-sys/repetitor/actions/runs/33902707254",
+      "note": "Workflow logged a successful repost but did not save the published Story media ID."
+    },
+    "2026-09-02-daty-v-dokumentah": {
+      "feedMediaId": "18146779903556815",
+      "observedOn": "2026-09-03",
+      "result": "logged_publish_failure",
+      "errorCode": "9007/2207027",
+      "runUrl": "https://github.com/zairush8877-sys/repetitor/actions/runs/33788638804",
+      "note": "Workflow reported Media ID is not available on media_publish. Later manual correction is unknown."
+    }
+  }
+}

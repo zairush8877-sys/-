@@ -1,0 +1,21 @@
+{
+  "actionlint": "1.7.12",
+  "actionlintPassed": true,
+  "yamlParsed": true,
+  "bashSyntaxPassed": [
+    "render-render-2.sh",
+    "render-render-3.sh",
+    "render-render-4.sh",
+    "render-render-5.sh",
+    "render-render-6.sh",
+    "publish-publish-2.sh",
+    "publish-publish-3.sh",
+    "publish-publish-4.sh",
+    "publish-publish-5.sh",
+    "stories-stories-2.sh",
+    "stories-stories-3.sh",
+    "stories-stories-4.sh",
+    "stories-stories-5.sh"
+  ],
+  "platform": "nt"
+}

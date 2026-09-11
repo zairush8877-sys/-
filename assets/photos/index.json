@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-09-11",
+  "note": "Реальные стоковые фотографии; не изображения Анны, её кабинета или учеников. Используются как иллюстрации. Полный кадр через contain.",
+  "photos": [
+    {
+      "file": "assets/photos/jeshoots-notebook.jpg",
+      "author": "JESHOOTS.COM",
+      "alt": "Открытый блокнот и ноутбук на светлом рабочем столе",
+      "source": "https://unsplash.com/photos/an-open-empty-notebook-on-a-white-desk-next-to-an-iphone-and-a-macbook-pUAM5hPaCRI",
+      "download": "https://images.unsplash.com/photo-1488998427799-e3362cec87c3?auto=format&fit=crop&fm=jpg&q=85&w=1800",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "active": true
+    },
+    {
+      "file": "assets/photos/clay-banks-notebook.jpg",
+      "author": "Clay Banks",
+      "alt": "Открытый блокнот, карандаши и ручка на деревянном столе",
+      "source": "https://unsplash.com/photos/open-notebook-with-pen-and-pencils-on-desk-n9AaeihA9HI/",
+      "download": "https://images.unsplash.com/photo-1761322572550-967ea8c0bfd9?auto=format&fit=crop&fm=jpg&q=85&w=1800",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "active": true
+    }
+  ]
+}

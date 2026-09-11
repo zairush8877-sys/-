@@ -9,7 +9,8 @@
       "author": "Grieg, Edvard; Musopen Symphony Orchestra",
       "source": "https://commons.wikimedia.org/wiki/File%3AMusopen%20-%20In%20the%20Hall%20Of%20The%20Mountain%20King.ogg",
       "attributionRequired": false,
-      "excerptFrom": 101
+      "excerptFrom": 101,
+      "active": false
     },
     {
       "file": "modest-mussorgsky-night-on-bald-mountain.mp3",
@@ -20,7 +21,8 @@
       "author": "Modest Petrovich Mussorgsky",
       "source": "https://commons.wikimedia.org/wiki/File%3AModest%20Mussorgsky%20-%20night%20on%20bald%20mountain.ogg",
       "attributionRequired": false,
-      "excerptFrom": 371
+      "excerptFrom": 371,
+      "active": false
     },
     {
       "file": "william-tell2.mp3",
@@ -31,7 +33,8 @@
       "author": "Sodero's Band",
       "source": "https://commons.wikimedia.org/wiki/File%3AWilliam%20Tell2.ogg",
       "attributionRequired": false,
-      "excerptFrom": 215
+      "excerptFrom": 215,
+      "active": false
     },
     {
       "file": "ludwig-van-beethoven-symphonie-5-c-moll-1-allegro-con-brio.mp3",
@@ -42,7 +45,8 @@
       "author": "user:OldakQuill",
       "source": "https://commons.wikimedia.org/wiki/File%3ALudwig%20van%20Beethoven%20-%20Symphonie%205%20c-moll%20-%201.%20Allegro%20con%20brio.ogg",
       "attributionRequired": false,
-      "excerptFrom": 329
+      "excerptFrom": 329,
+      "active": false
     },
     {
       "file": "richard-wagner-ride-of-the-valkyries.mp3",
@@ -53,7 +57,49 @@
       "author": "Richard Wagner (1813–1883)",
       "source": "https://commons.wikimedia.org/wiki/File%3ARichard%20Wagner%20-%20Ride%20of%20the%20Valkyries.ogg",
       "attributionRequired": false,
-      "excerptFrom": 173
+      "excerptFrom": 173,
+      "active": false
+    },
+    {
+      "file": "light-easy-lemon.mp3",
+      "title": "Easy Lemon",
+      "piece": "Easy Lemon",
+      "composer": "Kevin MacLeod",
+      "author": "Kevin MacLeod",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200076",
+      "download": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Easy%20Lemon.mp3",
+      "attributionRequired": true,
+      "attribution": "Easy Lemon — Kevin MacLeod (incompetech.com). CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Фрагмент обрезан и сведён с видео.",
+      "bpm": 82,
+      "mood": "light-calm",
+      "checkedAt": "2026-09-11",
+      "excerptFrom": 0,
+      "duration": 40,
+      "active": true,
+      "trendVerified": false
+    },
+    {
+      "file": "light-carefree.mp3",
+      "title": "Carefree",
+      "piece": "Carefree",
+      "composer": "Kevin MacLeod",
+      "author": "Kevin MacLeod",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400037",
+      "download": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Carefree.mp3",
+      "attributionRequired": true,
+      "attribution": "Carefree — Kevin MacLeod (incompetech.com). CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Фрагмент обрезан и сведён с видео.",
+      "bpm": 96,
+      "mood": "light-cheerful",
+      "checkedAt": "2026-09-11",
+      "excerptFrom": 0,
+      "duration": 40,
+      "active": true,
+      "trendVerified": false
     }
-  ]
+  ],
+  "checkedAt": "2026-09-11"
 }

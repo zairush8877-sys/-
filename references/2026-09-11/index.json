@@ -1,0 +1,174 @@
+{
+  "description": "User-provided design references, not reusable licensed publication assets",
+  "total": 28,
+  "files": [
+    {
+      "file": "batch-01/photo-01.jpg",
+      "originalName": "1-Фото-1.jpg",
+      "sha256": "e82dd90c469b2f474cd30320a027b59dc20a74ebe131d2cdefc1b5ff56929282",
+      "bytes": 93745
+    },
+    {
+      "file": "batch-01/photo-02.jpg",
+      "originalName": "2-Фото-2.jpg",
+      "sha256": "3d1e974c4969bf786f13c06e9f57b6d2e3aca748c34619b3dc3e27801775b82f",
+      "bytes": 123412
+    },
+    {
+      "file": "batch-01/photo-03.jpg",
+      "originalName": "3-Фото-3.jpg",
+      "sha256": "70c3ada1378164ae121c56143697babeb96b99a77e849ef1e0dc8abe07802520",
+      "bytes": 136670
+    },
+    {
+      "file": "batch-01/photo-04.jpg",
+      "originalName": "4-Фото-4.jpg",
+      "sha256": "70b742a2335b479539f5839f558fe4663196010ca174c1f38f8cb128fdb601d4",
+      "bytes": 112832
+    },
+    {
+      "file": "batch-01/photo-05.jpg",
+      "originalName": "5-Фото-5.jpg",
+      "sha256": "3b26bd32ee3fc1adbd179b6b3ed2716e7973beb6b79ccaad6659960e65975cce",
+      "bytes": 126094
+    },
+    {
+      "file": "batch-01/photo-06.jpg",
+      "originalName": "6-Фото-6.jpg",
+      "sha256": "e2d1191a2468007edf83a43eaaacf9652d87ae7b376b4d09bd1615630e3b83ba",
+      "bytes": 116908
+    },
+    {
+      "file": "batch-01/photo-07.jpg",
+      "originalName": "7-Фото-7.jpg",
+      "sha256": "75e03affc6beab1b610ae96ff6ef4d8891d05a0fd6fd23ca9bc0de87490151ac",
+      "bytes": 136859
+    },
+    {
+      "file": "batch-01/photo-08.jpg",
+      "originalName": "8-Фото-8.jpg",
+      "sha256": "4a09ccfb01b32ddcbf46779b67bf752b82b2dab448a39281b081f9603eeada8b",
+      "bytes": 130572
+    },
+    {
+      "file": "batch-02/photo-01.jpg",
+      "originalName": "1-Фото-1.jpg",
+      "sha256": "42380100745ce5892c4e33ead5223b7bb06e3c9657c33137082dac7378dde408",
+      "bytes": 111528
+    },
+    {
+      "file": "batch-02/photo-02.jpg",
+      "originalName": "2-Фото-2.jpg",
+      "sha256": "0e87ef50a9cb9c293f8b54fc0b96e5cbd66c81f03cceaccd94eb4c3788d91453",
+      "bytes": 140663
+    },
+    {
+      "file": "batch-02/photo-03.jpg",
+      "originalName": "3-Фото-3.jpg",
+      "sha256": "60defc128f26d511c367a2223d519be69dee0496bc1f66935ca74480bce36352",
+      "bytes": 111312
+    },
+    {
+      "file": "batch-02/photo-04.jpg",
+      "originalName": "4-Фото-4.jpg",
+      "sha256": "d6c91fc14356111598cc9f904efc40dcbca1c7ce1f269cb0f98089f73308f4b5",
+      "bytes": 128497
+    },
+    {
+      "file": "batch-02/photo-05.jpg",
+      "originalName": "5-Фото-5.jpg",
+      "sha256": "ea0534314fb9a71d233172317dbb71fa89efe7f09bac4b257548bb61ac616b37",
+      "bytes": 107216
+    },
+    {
+      "file": "batch-02/photo-06.jpg",
+      "originalName": "6-Фото-6.jpg",
+      "sha256": "41cadc6fff7d8ef3d500b0da90f5e8468b6705752b802cd509080b3f961ca5a6",
+      "bytes": 114438
+    },
+    {
+      "file": "batch-02/photo-07.jpg",
+      "originalName": "7-Фото-7.jpg",
+      "sha256": "fe0242615a6c6c37e067392ab21259ee867dbdcbb930eaf5f6cab74ba843c399",
+      "bytes": 134034
+    },
+    {
+      "file": "batch-02/photo-08.jpg",
+      "originalName": "8-Фото-8.jpg",
+      "sha256": "d33c32d67928194213929ab738c462a7f66fc2c0508c600e6fab250b7b4bd8de",
+      "bytes": 122040
+    },
+    {
+      "file": "batch-02/photo-09.jpg",
+      "originalName": "9-Фото-9.jpg",
+      "sha256": "cab980f8a8b3558f27cf7ece71c9579d6c2bee4bdae01d20feb91cb50fed15c8",
+      "bytes": 188451
+    },
+    {
+      "file": "batch-02/photo-10.jpg",
+      "originalName": "10-Фото-10.jpg",
+      "sha256": "084407c98bebb10975f900d7b9fa982f91cd959429da54a70fceff8adef551d5",
+      "bytes": 137572
+    },
+    {
+      "file": "batch-03/photo-01.jpg",
+      "originalName": "1-Фото-1.jpg",
+      "sha256": "142f54bc3c09800fb4237202c7eac01abc2bda9da3afbf689c45eb5b8d14e3c6",
+      "bytes": 168835
+    },
+    {
+      "file": "batch-03/photo-02.jpg",
+      "originalName": "2-Фото-2.jpg",
+      "sha256": "67d95aa40119adcbd40f3ea0ce80885c7837d8c9ff57e4e494ceb02ff83d3179",
+      "bytes": 92426
+    },
+    {
+      "file": "batch-03/photo-03.jpg",
+      "originalName": "3-Фото-3.jpg",
+      "sha256": "97f1ec5d797c668dfa348a920b8ec91c3d47bc6fc98590167cc26fb632248bf9",
+      "bytes": 185766
+    },
+    {
+      "file": "batch-03/photo-04.jpg",
+      "originalName": "4-Фото-4.jpg",
+      "sha256": "98ab8fb5ea94ce16890dbf36d41ced3c8cc65c611cddd4bc40808a46fd8fd7fc",
+      "bytes": 84817
+    },
+    {
+      "file": "batch-03/photo-05.jpg",
+      "originalName": "5-Фото-5.jpg",
+      "sha256": "e82dd90c469b2f474cd30320a027b59dc20a74ebe131d2cdefc1b5ff56929282",
+      "bytes": 93745
+    },
+    {
+      "file": "batch-03/photo-06.jpg",
+      "originalName": "6-Фото-6.jpg",
+      "sha256": "7d85e654a047716f79293ca7859c7425a89a6ddb38551892381acfe6bf7ddfa1",
+      "bytes": 99646
+    },
+    {
+      "file": "batch-03/photo-07.jpg",
+      "originalName": "7-Фото-7.jpg",
+      "sha256": "4a09ccfb01b32ddcbf46779b67bf752b82b2dab448a39281b081f9603eeada8b",
+      "bytes": 130572
+    },
+    {
+      "file": "batch-03/photo-08.jpg",
+      "originalName": "8-Фото-8.jpg",
+      "sha256": "089cde65011fd1764a635a03e2c27e9eaee707f7dff8f184134338e0f85f1347",
+      "bytes": 166202
+    },
+    {
+      "file": "batch-03/photo-09.jpg",
+      "originalName": "9-Фото-9.jpg",
+      "sha256": "5c7b4d8ec9d95f611490984262768b24be82ab2e129be93ac670b64096f8faa1",
+      "bytes": 129908
+    },
+    {
+      "file": "batch-03/photo-10.jpg",
+      "originalName": "10-Фото-10.jpg",
+      "sha256": "e2d1191a2468007edf83a43eaaacf9652d87ae7b376b4d09bd1615630e3b83ba",
+      "bytes": 116908
+    }
+  ]
+}

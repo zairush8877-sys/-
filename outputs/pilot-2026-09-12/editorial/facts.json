@@ -1,0 +1,111 @@
+{
+  "checkedAt": "2026-09-12",
+  "account": "@mairova_a_a",
+  "role": "proofreader",
+  "status": "facts_verified_for_local_pilot",
+  "replaceTopic": false,
+  "school": true,
+  "framing": "Прочитайте вместе с ребёнком",
+  "publicationAuthorized": false,
+  "sources": [
+    {
+      "id": "atlas",
+      "url": "https://gramota.ru/poisk?mode=slovari&query=%D0%B0%D1%82%D0%BB%D0%B0%D1%81",
+      "checkedAt": "2026-09-12",
+      "method": "live_public_html",
+      "dictionaries": ["Русский орфографический словарь: В. В. Лопатин, О. Е. Иванова", "Большой орфоэпический словарь русского языка", "Большой толковый словарь русского языка: С. А. Кузнецов"]
+    },
+    {
+      "id": "iris",
+      "url": "https://gramota.ru/poisk?mode=slovari&query=%D0%B8%D1%80%D0%B8%D1%81",
+      "checkedAt": "2026-09-12",
+      "method": "live_public_html",
+      "dictionaries": ["Русский орфографический словарь: В. В. Лопатин, О. Е. Иванова", "Словарь трудностей русского языка", "Русское словесное ударение", "Большой толковый словарь русского языка", "Большой толковый словарь русских существительных"]
+    },
+    {
+      "id": "cotton_clap",
+      "url": "https://gramota.ru/poisk?mode=slovari&query=%D1%85%D0%BB%D0%BE%D0%BF%D0%BE%D0%BA",
+      "checkedAt": "2026-09-12",
+      "method": "live_public_html",
+      "dictionaries": ["Русский орфографический словарь: В. В. Лопатин, О. Е. Иванова", "Большой орфоэпический словарь русского языка", "Русское словесное ударение", "Большой универсальный словарь русского языка", "Большой толковый словарь русского языка"]
+    },
+    {
+      "id": "homographs",
+      "url": "https://gramota.ru/meta/omografy",
+      "checkedAt": "2026-09-12",
+      "method": "indexed_primary_dictionary_text",
+      "dictionary": "Большой толковый словарь русского языка",
+      "pronunciationDefinitionSource": "https://gramota.ru/storage/public/normdicts/slovar_inostr_slov.pdf"
+    }
+  ],
+  "pairs": [
+    {
+      "id": "atlas",
+      "classification": "омографы",
+      "forms": [
+        {"word": "а́тлас", "stressVowelOrdinal": 1, "meaning": "сборник карт", "example": "Открыли а́тлас мира"},
+        {"word": "атла́с", "stressVowelOrdinal": 2, "meaning": "гладкая блестящая ткань", "example": "Лента из атла́са"}
+      ],
+      "scopeNotes": ["Сборник карт — выбранное значение; а́тлас бывает сборником рисунков, таблиц и чертежей", "Не утверждать, что атла́с бывает исключительно из натурального шёлка"],
+      "sourceIds": ["atlas", "homographs"]
+    },
+    {
+      "id": "iris",
+      "classification": "омографы",
+      "forms": [
+        {"word": "и́рис", "stressVowelOrdinal": 1, "meaning": "цветок", "example": "В саду расцвёл и́рис"},
+        {"word": "ири́с", "stressVowelOrdinal": 2, "meaning": "сорт конфет", "example": "К чаю купили ири́с"}
+      ],
+      "scopeNotes": ["У и́риса есть и другие словарные значения, включая нитки", "Одна конфета точнее называется ириской; ири́с — сорт конфет"],
+      "sourceIds": ["iris", "homographs"]
+    },
+    {
+      "id": "cotton_clap",
+      "classification": "омографы",
+      "forms": [
+        {"word": "хло́пок", "stressVowelOrdinal": 1, "meaning": "хлопчатник и его волокно", "example": "Рубашка из хло́пка"},
+        {"word": "хлопо́к", "stressVowelOrdinal": 2, "meaning": "короткий удар или резкий короткий звук", "example": "Один хлопо́к в ладоши"}
+      ],
+      "scopeNotes": ["Хло́пок также обозначает ткань, нити и изделия", "Для хлопо́к выбран нейтральный пример с ладонями"],
+      "sourceIds": ["cotton_clap", "homographs"]
+    }
+  ],
+  "duplicateCheck": {
+    "path": "content/queue.json",
+    "postCount": 47,
+    "statuses": "all",
+    "method": "JSON.stringify each post; Unicode NFD; remove U+0301; case-insensitive substring search",
+    "searched": ["атлас", "ирис", "хлопок"],
+    "matches": [],
+    "sha256": "ADAB07F93088DB53D1F6E46D6D2257D4CE14DA806D7083EC2D48BBA919E90A6C",
+    "limitations": ["No OCR of images", "No Instagram posts outside local queue checked"]
+  },
+  "slides": [
+    {"number": 1, "type": "cover", "title": "Одинаковые буквы. Разные слова.", "subtitle": "Прочитайте вместе с ребёнком: как ударение помогает понять смысл?", "label": "3 пары омографов"},
+    {"number": 2, "type": "meaning_pair", "pairId": "atlas", "title": "А́тлас / атла́с"},
+    {"number": 3, "type": "meaning_pair", "pairId": "iris", "title": "И́рис / ири́с"},
+    {"number": 4, "type": "meaning_pair", "pairId": "cotton_clap", "title": "Хло́пок / хлопо́к"},
+    {"number": 5, "type": "summary", "title": "Это омографы.", "body": "Без знака ударения они пишутся одинаково. Значения и произношение разные. В каждой паре оба слова правильные — контекст подсказывает выбор."},
+    {"number": 6, "type": "question", "title": "Прочитайте по смыслу", "body": "«В вазе — ирис. К чаю — ирис». Где поставить ударение?", "answer": "В вазе — и́рис. К чаю — ири́с.", "unaccentedPromptIntentional": true}
+  ],
+  "stories": {
+    "type": "vopros",
+    "q": "Ирис к чаю — как читать?",
+    "a": "и́рис",
+    "b": "ири́с",
+    "right": "b",
+    "why": "Ири́с — сорт конфет.\nИ́рис — цветок.",
+    "school": true,
+    "sourceIds": ["iris"],
+    "lengthsUtf16": {"q": 24, "a": 5, "b": 5, "whyLines": [20, 15]},
+    "nativeInstagramPoll": false
+  },
+  "editorialConstraints": [
+    "Оба ударения правильны в своих значениях: не использовать колонки неправильно/правильно или зачёркивание",
+    "Это разные слова, не два допустимых произношения одного предмета",
+    "Проверить школьную квоту перед постановкой в очередь",
+    "Не утверждать включение этих конкретных пар в нынешний список ФИПИ/ЕГЭ",
+    "Не использовать выдуманные случаи из практики преподавателя",
+    "Проверить видимость U+0301 в итоговом рендере"
+  ]
+}

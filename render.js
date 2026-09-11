@@ -16,14 +16,16 @@ const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
 const FONTS = require('./fonts');
+const LIGHT = require('./light-style');
 
-const QUEUE = path.join(__dirname, 'content', 'queue.json');
+const CONTENT = path.resolve(process.env.MEDIA_CONTENT_DIR || path.join(__dirname, 'content'));
+const QUEUE = path.join(CONTENT, 'queue.json');
 
 // Instagram показывает ленту в 4:5, Pinterest — в 2:3: более узкие картинки он ужимает,
 // и текст на них становится нечитаемым. Поэтому под пины рисуем отдельный размер.
 const pinMode = process.argv.includes('--pin');
 const [W, H] = pinMode ? [1000, 1500] : [1080, 1350];
-const IMAGES = path.join(__dirname, 'content', pinMode ? 'pins' : 'images');
+const IMAGES = path.join(CONTENT, pinMode ? 'pins' : 'images');
 
 const PALETTE = {
   bg: '#fbf8f3',
@@ -463,7 +465,7 @@ function photoHtml(slide, index, total, handle, postId) {
   </body></html>`;
 }
 
-function slideHtml(slide, index, total, handle, postId) {
+function legacySlideHtml(slide, index, total, handle, postId) {
   if (slide.layout === 'table') return tableHtml(slide, index, total, handle, postId);
   if (slide.layout === 'pair') return pairHtml(slide, index, total, handle, postId);
   if (slide.layout === 'then') return thenHtml(slide, index, total, handle, postId);
@@ -534,6 +536,11 @@ function slideHtml(slide, index, total, handle, postId) {
         `<span class="dot${i === index ? ' on' : ''}"></span>`).join('')}</span>` : ''}
     </div>
   </body></html>`;
+}
+
+function slideHtml(slide, index, total, handle, postId, visualStyle) {
+  if (visualStyle === 'paper-collage') return require('./paper-collage').slideHtml(slide, index, total, handle, W, H);
+  return LIGHT.slideHtml(slide, index, total, handle, postId, W, H);
 }
 
 function previewHtml(queue, rendered) {
@@ -677,7 +684,10 @@ function previewHtml(queue, rendered) {
   </body></html>`;
 }
 
-(async () => {
+if (require.main === module) (async () => {
+  if (!process.env.MEDIA_BUILD_INTERNAL && !pinMode && !process.argv.includes('--no-video')) {
+    return require('./build-media').main(process.argv.slice(2));
+  }
   const queue = JSON.parse(fs.readFileSync(QUEUE, 'utf8'));
   const only = process.argv.slice(2).find(a => !a.startsWith('--'));
   const targets = queue.posts.filter(p =>
@@ -692,7 +702,7 @@ function previewHtml(queue, rendered) {
   // В этом окружении Chromium предустановлен отдельно от версии, которую ждёт playwright
   const preinstalled = '/opt/pw-browsers/chromium';
   const browser = await chromium.launch(
-    fs.existsSync(preinstalled) ? { executablePath: preinstalled } : {});
+    LIGHT.browserOptions());
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
   const rendered = {};
 
@@ -706,7 +716,9 @@ function previewHtml(queue, rendered) {
     rendered[post.id] = [];
     const total = post.slides.length;
     for (let i = 0; i < total; i++) {
-      await page.setContent(slideHtml(post.slides[i], i, total, queue.account, post.id));
+      await page.setContent(slideHtml(post.slides[i], i, total, queue.account, post.id, post.visualStyle));
+      await LIGHT.fitContent(page);
+      if (post.visualStyle === 'paper-collage') await require('./paper-collage').verifySlide(page);
       const file = path.join(IMAGES, `${post.id}-${i + 1}.jpg`);
       await page.screenshot({ path: file, type: 'jpeg', quality: 92 });
       rendered[post.id].push(file);
@@ -731,7 +743,7 @@ function previewHtml(queue, rendered) {
         const raw = f => `https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/${path.basename(f)}`;
         qp.imageUrls = files.map(raw);
         qp.videoUrls = vids.map(raw);
-        if (track) qp.music = { composer: track.composer, piece: track.piece, license: track.license };
+        if (track) qp.music = LIGHT.musicMeta(track);
         fs.writeFileSync(QUEUE, JSON.stringify(fresh, null, 2));
       }
       console.log(`${id}: ${vids.length} слайдов со звуком — ${track ? track.composer : 'без музыки'}`);
@@ -750,7 +762,8 @@ function previewHtml(queue, rendered) {
         path.join(IMAGES, `${p.id}-${i + 1}.jpg`)).filter(fs.existsSync);
     }
   }
-  fs.writeFileSync(path.join(__dirname, 'content', 'preview.html'), previewHtml(queue, rendered));
+  fs.writeFileSync(path.join(CONTENT, 'preview.html'), previewHtml(queue, rendered));
 
   console.log(`\nГотово. Откройте content/preview.html — там все посты со слайдами и подписями.`);
-})();
+})().catch(e => { console.error(e.message); process.exitCode = 1; });
+module.exports = { slideHtml, legacySlideHtml };

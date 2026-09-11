@@ -26,13 +26,11 @@ function pickFrom(list, key) {
 }
 
 function backgrounds() {
-  if (!fs.existsSync(BG_INDEX)) return [];
-  const list = JSON.parse(fs.readFileSync(BG_INDEX, 'utf8')).backgrounds || [];
-  // Правило автора — «нужно разнообразие»: фотографии из её папки идут чаще
-  // (каждая учтена дважды), но между ними попадаются и рисованные фоны —
-  // лента не сливается ни в сплошные снимки, ни в сплошную графику.
-  const photos = list.filter(b => path.basename(b.file).startsWith('foto-'));
-  return photos.length ? [...photos, ...photos, ...list.filter(b => !photos.includes(b))] : list;
+  const index = path.join(__dirname, 'assets/photos/index.json');
+  if (!fs.existsSync(index)) return [];
+  return JSON.parse(fs.readFileSync(index, 'utf8')).photos
+    .filter(p => p.active !== false && fs.existsSync(path.join(__dirname, p.file)))
+    .map(p => ({ ...p, light: true, generated: false }));
 }
 
 /**
@@ -50,7 +48,7 @@ function backgrounds() {
  */
 function chooseBackground(post) {
   const list = backgrounds();
-  if (post.background) {
+  if (post.background && list.some(b => b.file === post.background)) {
     const meta = list.find(b => b.file === post.background);
     return {
       file: post.background,
@@ -68,6 +66,7 @@ function chooseTrack(id, salt = 'music') {
   const idx = path.join(MUSIC_DIR, 'index.json');
   if (!fs.existsSync(idx)) return null;
   const list = (JSON.parse(fs.readFileSync(idx, 'utf8')).tracks || [])
+    .filter(t => t.active !== false)
     .filter(t => fs.existsSync(path.join(MUSIC_DIR, t.file)));
   return list.length ? pickFrom(list, id + salt) : null;
 }

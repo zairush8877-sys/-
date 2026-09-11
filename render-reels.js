@@ -20,14 +20,16 @@ const { execFileSync } = require('child_process');
 const { chromium } = require('playwright');
 const ffmpeg = require('ffmpeg-static');
 const FONTS = require('./fonts');
+const LIGHT = require('./light-style');
 
 // Палитра системы «Правка» (design/PHILOSOPHY.md): бумага, цвет ошибки
 // (землистый, ближе к кирпичу, чем к тревожному красному) и цвет нормы —
 // приглушённая хвоя. Больше акцентов в кадре нет.
 const PRAVKA = { err: '#8a3a24', ok: '#2f5748', ink: '#211d18', field: 'rgba(33,29,24,.10)' };
 
-const QUEUE = path.join(__dirname, 'content', 'queue.json');
-const OUT_DIR = path.join(__dirname, 'content', 'reels');
+const CONTENT = path.resolve(process.env.MEDIA_CONTENT_DIR || path.join(__dirname, 'content'));
+const QUEUE = path.join(CONTENT, 'queue.json');
+const OUT_DIR = path.join(CONTENT, 'reels');
 
 const W = 1080, H = 1920, FPS = 30;
 const INTRO = 1.2;      // заставка, сек
@@ -49,7 +51,7 @@ const PALETTE = {
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-function pageHtml(post, handle) {
+function legacyPageHtml(post, handle) {
   // Режим шагов (post.steps): инструкция, а не работа над ошибками — строки
   // нумеруются и появляются без зачёркивания, вся остальная механика общая.
   const steps = !!post.steps;
@@ -247,7 +249,7 @@ function pageHtml(post, handle) {
         });
         const bar = document.querySelector('.progress i');
         if (bar) {
-          const totalT = intro + document.querySelectorAll('.row').length * step + ${OUTRO};
+          const totalT = intro + document.querySelectorAll('.row').length * step + ${Number(post.outroSeconds) || OUTRO};
           bar.style.width = Math.min(100, Math.max(0, t / totalT * 100)) + '%';
         }
         const card = document.querySelector('.card');
@@ -275,7 +277,32 @@ function pageHtml(post, handle) {
 
 const ROTATION = require('./rotation');
 
-(async () => {
+function pageHtml(post, handle) {
+  if (post.visualStyle === 'paper-collage') return require('./paper-collage').reelHtml(post, handle, legacyPageHtml);
+  // Фотография занимает отдельный блок. Ни затемняющей плёнки, ни растяжения.
+  const selected = LIGHT.photo(post.id);
+  const copy = { ...post, background: selected?.file, lightBg: true, videoBg: undefined };
+  return legacyPageHtml(copy, handle).replace('</style>', `
+    body{background:#fcfbf7!important;padding:300px 72px 570px!important}
+    body::before{display:none!important}
+    .title{font-size:70px!important;line-height:1.15!important;margin-bottom:30px!important}
+    .kicker{font-size:25px!important;letter-spacing:.08em!important;margin-bottom:26px!important}
+    .plate{background:none!important;padding:0!important;box-decoration-break:initial!important}
+    .card{background:#fff!important;box-shadow:none!important;border:1px solid #dbe5db;padding:24px 30px 20px!important;flex-shrink:0!important}
+    .row,.head{flex-shrink:0!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
+    .bad,.good{overflow-wrap:anywhere}
+    .head{letter-spacing:.06em!important;font-size:24px!important}
+    .foot,.foot *{color:#526a60!important;text-shadow:none!important}
+    .photo{position:absolute;left:72px;right:72px;bottom:270px;height:270px;background:#eef2eb;border-radius:12px;overflow:hidden;display:flex;justify-content:center}
+    .photo img{width:100%;height:100%;object-fit:contain}
+  </style>`).replace('<body>', `<body>${LIGHT.photoHtml(selected)}`);
+}
+
+if (require.main === module) (async () => {
+  if (!process.env.MEDIA_BUILD_INTERNAL && !process.argv.includes('--frame')) {
+    if (!process.argv[2]) throw new Error('Укажите конкретный ID Reels.');
+    return require('./build-media').main(process.argv.slice(2));
+  }
   const queue = JSON.parse(fs.readFileSync(QUEUE, 'utf8'));
   const id = process.argv[2];
   const post = queue.posts.find(p => p.id === id);
@@ -286,8 +313,8 @@ const ROTATION = require('./rotation');
   if (post.rows.length > 10) { console.error(`У поста «${id}» ${post.rows.length} пар — больше десяти в кадр не помещается.`); process.exit(1); }
 
   const videoBgFile = post.videoBg && path.join(__dirname, post.videoBg);
-  const useVideoBg = !!(videoBgFile && fs.existsSync(videoBgFile));
-  const bg = post.plainBg || useVideoBg ? null : ROTATION.chooseBackground(post);
+  const useVideoBg = false; // Тёмные видеофоны сохранены в архиве; новая подача — реальное фото.
+  const bg = post.visualStyle === 'paper-collage' ? { ...require('./paper-collage').photo(post.photo), light: true, generated: false } : post.plainBg || useVideoBg ? null : ROTATION.chooseBackground(post);
   if (bg) {
     post.background = bg.file;
     post.lightBg = bg.light;
@@ -295,15 +322,19 @@ const ROTATION = require('./rotation');
     console.log(`фон: ${path.basename(bg.file)} (${bg.light ? 'светлый' : 'тёмный'}, ${bg.generated ? 'код' : 'фото'})`);
   }
 
-  const total = INTRO + post.rows.length * ROW_STEP + OUTRO;
+  const rowStep = post.rowSeconds ?? ROW_STEP;
+  const outro = post.outroSeconds ?? OUTRO;
+  if (![rowStep, outro].every(n => Number.isFinite(n) && n >= .5 && n <= 10)) throw new Error('rowSeconds/outroSeconds: допустимо от 0.5 до 10 секунд.');
+  const total = INTRO + post.rows.length * rowStep + outro;
   const frames = Math.round(total * FPS);
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'reels-'));
 
   const preinstalled = '/opt/pw-browsers/chromium';
   const browser = await chromium.launch(
-    fs.existsSync(preinstalled) ? { executablePath: preinstalled } : {});
+    LIGHT.browserOptions());
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
   await page.setContent(pageHtml(post, queue.account));
+  await LIGHT.fitReelContent(page);
 
   // Геометрия карточки снимается один раз, пока все строки стоят в потоке
   // с естественной высотой, — по ней seek() и ведёт рост карточки.
@@ -323,7 +354,7 @@ const ROTATION = require('./rotation');
   if (process.argv.includes('--frame')) {
     await page.evaluate(
       ([t, intro, step]) => window.seek(t, intro, step),
-      [total - 0.1, INTRO, ROW_STEP]);
+      [total - 0.1, INTRO, rowStep]);
     const file = path.join(OUT_DIR, `${id}-frame.jpg`);
     fs.mkdirSync(OUT_DIR, { recursive: true });
     await page.screenshot({ path: file, type: 'jpeg', quality: 92 });
@@ -335,13 +366,15 @@ const ROTATION = require('./rotation');
   for (let f = 0; f < frames; f++) {
     await page.evaluate(
       ([t, intro, step]) => window.seek(t, intro, step),
-      [f / FPS, INTRO, ROW_STEP]);
+      [f / FPS, INTRO, rowStep]);
     await page.screenshot({ path: path.join(tmp, `f${String(f).padStart(4, '0')}.png`), omitBackground: useVideoBg });
     if (f % 60 === 0) console.log(`кадр ${f}/${frames}`);
   }
-  await browser.close();
-
+  // Every video build also exports the exact full final frame used by Stories.
+  await page.evaluate(([t, intro, step]) => window.seek(t, intro, step), [total - .1, INTRO, rowStep]);
   fs.mkdirSync(OUT_DIR, { recursive: true });
+  await page.screenshot({ path: path.join(OUT_DIR, `${id}-frame.jpg`), type: 'jpeg', quality: 92 });
+  await browser.close();
   const out = path.join(OUT_DIR, `${id}.mp4`);
 
   // Без музыки ролик в ленте звучит как сбой звука, поэтому дорожка обязательна.
@@ -394,7 +427,7 @@ const ROTATION = require('./rotation');
       // автора): без thumb_offset Instagram берёт кадр сам, чаще всего пустой
       // заголовок из первой секунды.
       qp.coverOffsetMs = Math.round((total - 1.0) * 1000);
-      if (track) qp.music = { composer: track.composer || '', piece: track.piece || track.title, license: track.license };
+      if (track) qp.music = LIGHT.musicMeta(track);
       fs.writeFileSync(QUEUE, JSON.stringify(fresh, null, 2) + '\n');
     }
   }
@@ -402,4 +435,5 @@ const ROTATION = require('./rotation');
   fs.rmSync(tmp, { recursive: true, force: true });
   const mb = (fs.statSync(out).size / 1024 / 1024).toFixed(1);
   console.log(`\nГотово: ${out} (${total.toFixed(1)} сек, ${mb} МБ)`);
-})();
+})().catch(e => { console.error(e.message); process.exitCode = 1; });
+module.exports = { pageHtml, legacyPageHtml, INTRO, ROW_STEP, OUTRO };

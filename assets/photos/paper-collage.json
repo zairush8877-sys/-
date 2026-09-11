@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-09-12",
+  "note": "Предметные фотографии для темы paper-collage. Лица преподавателя и учеников не изображены. Каждый снимок просмотрен; полный кадр без растяжения.",
+  "photos": [
+    {"id":"iris","file":"assets/photos/iris-vehofsics.jpg","author":"Erzsébet Vehofsics","alt":"Два синих цветка ириса","source":"https://unsplash.com/photos/purple-iris-flowers-QJNFKcofcOc","download":"https://images.unsplash.com/photo-1557682226-0268c8a5d586?auto=format&fit=max&fm=jpg&q=88&w=1600","license":"Unsplash License","licenseUrl":"https://unsplash.com/license"},
+    {"id":"cotton","file":"assets/photos/cotton-krohn.jpg","author":"Marianne Krohn","alt":"Коробочки хлопчатника с белым волокном","source":"https://unsplash.com/photos/cottons-on-white-surface-RNqZbnBnMQk","download":"https://images.unsplash.com/photo-1529087795572-98e214aeeb79?auto=format&fit=max&fm=jpg&q=88&w=1600","license":"Unsplash License","licenseUrl":"https://unsplash.com/license"},
+    {"id":"satin","file":"assets/photos/satin-aritonang.jpg","author":"Lampos Aritonang","alt":"Складки светлой атласной ткани","source":"https://unsplash.com/photos/a-close-up-of-a-white-satin-fabric-3SRFXk-PIEo","download":"https://images.unsplash.com/photo-1674476307162-069b0e648879?auto=format&fit=max&fm=jpg&q=88&w=1600","license":"Unsplash License","licenseUrl":"https://unsplash.com/license"},
+    {"id":"atlas","file":"assets/photos/atlas-anez.jpg","author":"Arturo Añez.","alt":"Открытая книга с географической картой","source":"https://www.pexels.com/photo/a-person-pointing-at-a-map-on-a-book-15844887/","download":"https://images.pexels.com/photos/15844887/pexels-photo-15844887.jpeg?auto=compress&cs=tinysrgb&w=1600","license":"Pexels License","licenseUrl":"https://www.pexels.com/license/"}
+  ]
+}

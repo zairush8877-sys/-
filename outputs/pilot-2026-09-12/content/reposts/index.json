@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "posts": {
+    "2026-09-12-omographs-carousel": {
+      "kind": "carousel_slides",
+      "sourceKey": "207c0d6137d18d81ca5ca094f88860ebcf0d8fc99c838ba3508393baf5371dfc",
+      "renderedAt": "2026-09-11T21:51:43.938Z",
+      "publicationStatus": "export_only",
+      "assets": [
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-1.jpg",
+          "file": "2026-09-12-omographs-carousel-1.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-12-omographs-carousel-1.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "3a7b20328c264d209eac67fed63bff74d046b39f50c6e5bfc2694f554446818e",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "86e440d73ba0eff8c620a0314036c6186f0f86d2b1ade7f045402656764efae2",
+            "sha256": "3a7b20328c264d209eac67fed63bff74d046b39f50c6e5bfc2694f554446818e"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-2.jpg",
+          "file": "2026-09-12-omographs-carousel-2.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-12-omographs-carousel-2.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "86ebce6fd0d2831a3b51e0bce2461c5f7dac2468da2d7d35a399ad5398903e60",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "e921413c4f70b5d477be0628439b6187b840bbd531f86b126477ae7429b95dec",
+            "sha256": "86ebce6fd0d2831a3b51e0bce2461c5f7dac2468da2d7d35a399ad5398903e60"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-3.jpg",
+          "file": "2026-09-12-omographs-carousel-3.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-12-omographs-carousel-3.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "9dda910676bb322b1ef7a287436a8657fb0eb3537423cf4188730622e462dfa2",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "e1d19accfe03b6691ec7b2bae13808f438524ae011641184befd8578e9e705ea",
+            "sha256": "9dda910676bb322b1ef7a287436a8657fb0eb3537423cf4188730622e462dfa2"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-4.jpg",
+          "file": "2026-09-12-omographs-carousel-4.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-12-omographs-carousel-4.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "b8168cfb78f45550f138c6ee6c417e0ada0827fa1dbf0643dd64de1bdf21ef1e",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "4e67f660d80d2096b7817168ad72cfeaf3e727841f072c143980c7bbb56441cb",
+            "sha256": "b8168cfb78f45550f138c6ee6c417e0ada0827fa1dbf0643dd64de1bdf21ef1e"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-5.jpg",
+          "file": "2026-09-12-omographs-carousel-5.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-12-omographs-carousel-5.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "bf92bc6e896d5fa2d89ca49d46b0de8fccd36d5d9074cdd07dea2f3582935af7",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "49ad726833416107e3351117019432a14bb3a5771c6f1fe536c9591d1a1088ac",
+            "sha256": "bf92bc6e896d5fa2d89ca49d46b0de8fccd36d5d9074cdd07dea2f3582935af7"
+          }
+        },
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-6.jpg",
+          "file": "2026-09-12-omographs-carousel-6.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-12-omographs-carousel-6.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "9b70fe38452a3c3182388de4bbf13b79fee3297025674195f2906ad5b9a621c6",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1350,
+            "x": 60,
+            "y": 410,
+            "width": 960,
+            "height": 1200,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "f2d470e7b86ff8d34df2ec0e013281052c09e3367d9116f216cc91f48ed2f37e",
+            "sha256": "9b70fe38452a3c3182388de4bbf13b79fee3297025674195f2906ad5b9a621c6"
+          }
+        }
+      ]
+    },
+    "2026-09-12-omographs-reel": {
+      "kind": "reel_frame",
+      "sourceKey": "3a9fcafb1b906cc55edc665f427b2893e9930b63fa0961cb1cfa896b110dd772",
+      "renderedAt": "2026-09-11T21:43:47.857Z",
+      "publicationStatus": "export_only",
+      "assets": [
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reels/2026-09-12-omographs-reel-frame.jpg",
+          "file": "2026-09-12-omographs-reel-1.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reposts/2026-09-12-omographs-reel-1.jpg",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "de97762e113b41685d56a3614f62b72844e451553deb5b0661845bc01be70922",
+          "geometry": {
+            "sourceWidth": 1080,
+            "sourceHeight": 1920,
+            "x": 174.375,
+            "y": 360,
+            "width": 731.25,
+            "height": 1300,
+            "outputWidth": 1080,
+            "outputHeight": 1920,
+            "sourceSha256": "c25223f573d4e6bf78457485354740167d2cb777a2b766334dd93ef78c3f8997",
+            "sha256": "de97762e113b41685d56a3614f62b72844e451553deb5b0661845bc01be70922"
+          }
+        }
+      ]
+    }
+  }
+}

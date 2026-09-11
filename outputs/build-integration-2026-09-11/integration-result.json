@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-09-11T19:44:20.593Z",
+  "fixture": "C:\\Users\\Admin\\Documents\\ChatGPT\\мама инста\\outputs\\build-integration-2026-09-11\\run-swZHOE",
+  "entrypoints": [
+    "render.js",
+    "build-media.js",
+    "render-reels.js"
+  ],
+  "verified": [
+    {
+      "id": "integration-post",
+      "format": "Пост",
+      "files": 1,
+      "storyFrames": 1,
+      "status": "approved",
+      "prepared": true
+    },
+    {
+      "id": "integration-carousel",
+      "format": "Карусель",
+      "files": 16,
+      "storyFrames": 8,
+      "status": "approved",
+      "prepared": true
+    },
+    {
+      "id": "integration-reel",
+      "format": "Reels",
+      "files": 2,
+      "storyFrames": 1,
+      "status": "approved",
+      "prepared": true
+    }
+  ],
+  "dryRun": "\n→ integration-post [Путают даже грамотные] 1 слайд(ов)\n  (dry-run) Подготовлены пост с подписью 909 симв. и 1 кадров Stories. Файлы и метаданные проверены локально; сеть и публикация не запускались.\n\n→ integration-carousel [История слова] 8 слайд(ов)\n  (dry-run) Подготовлены карусель с подписью 1015 симв. и 8 кадров Stories. Файлы и метаданные проверены локально; сеть и публикация не запускались.\n\n→ integration-reel [Правка в дикой природе] видео\n  (dry-run) Подготовлены Reels с подписью 659 симв. и 1 кадров Stories. Файлы и метаданные проверены локально; сеть и публикация не запускались.\n",
+  "negativeChecks": [
+    "corrupt eighth Story blocks sender",
+    "missing Reel frame blocks validation",
+    "changed editorial content invalidates metadata",
+    "pending content cannot publish"
+  ],
+  "queueUnchanged": true,
+  "realQueuesUnchanged": true,
+  "reelVideoAndAudioDecoded": true,
+  "noInstagramCalls": true
+}

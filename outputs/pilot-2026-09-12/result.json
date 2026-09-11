@@ -1,0 +1,43 @@
+{
+  "createdAt": "2026-09-11T23:04:20.662Z",
+  "liveQueueUnchanged": true,
+  "queueCheckScope": "this-gallery-build",
+  "liveQueueSha256": "adab07f93088db53d1f6e46d6d2257d4ce14da806d7083ec2d48bba919e90a6c",
+  "publicationAuthorized": false,
+  "publicationPerformed": false,
+  "posts": [
+    {
+      "id": "2026-09-12-omographs-carousel",
+      "status": "pending",
+      "date": null,
+      "files": 12,
+      "reposts": 6,
+      "music": {
+        "composer": "Kevin MacLeod",
+        "piece": "Carefree",
+        "license": "CC BY 4.0",
+        "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400037",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Carefree — Kevin MacLeod (incompetech.com). CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Фрагмент обрезан и сведён с видео.",
+        "attributionRequired": true
+      }
+    },
+    {
+      "id": "2026-09-12-omographs-reel",
+      "status": "pending",
+      "date": null,
+      "files": 2,
+      "reposts": 1,
+      "music": {
+        "composer": "Kevin MacLeod",
+        "piece": "Carefree",
+        "license": "CC BY 4.0",
+        "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400037",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Carefree — Kevin MacLeod (incompetech.com). CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Фрагмент обрезан и сведён с видео.",
+        "attributionRequired": true
+      }
+    }
+  ],
+  "factsCheckedAt": "2026-09-12"
+}

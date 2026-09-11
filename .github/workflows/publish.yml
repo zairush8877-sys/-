@@ -20,11 +20,20 @@ on:
 permissions:
   contents: write         # чтобы записать обратно статус published
 
+# One account, one writer across feed publication and standalone Stories.
+# Never interrupt a running media_publish: its outcome can become ambiguous.
+concurrency:
+  group: instagram-publishing-${{ github.repository }}
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Read the latest persisted queue after waiting for the shared writer slot.
+          ref: main
 
       - uses: actions/setup-node@v4
         with:

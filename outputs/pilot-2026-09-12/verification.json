@@ -1,0 +1,67 @@
+{
+  "queuePending": true,
+  "videos": [
+    {
+      "file": "images/2026-09-12-omographs-carousel-1.mp4",
+      "width": 1080,
+      "height": 1350,
+      "duration": 6,
+      "audio": "aac"
+    },
+    {
+      "file": "images/2026-09-12-omographs-carousel-2.mp4",
+      "width": 1080,
+      "height": 1350,
+      "duration": 6,
+      "audio": "aac"
+    },
+    {
+      "file": "images/2026-09-12-omographs-carousel-3.mp4",
+      "width": 1080,
+      "height": 1350,
+      "duration": 6,
+      "audio": "aac"
+    },
+    {
+      "file": "images/2026-09-12-omographs-carousel-4.mp4",
+      "width": 1080,
+      "height": 1350,
+      "duration": 6,
+      "audio": "aac"
+    },
+    {
+      "file": "images/2026-09-12-omographs-carousel-5.mp4",
+      "width": 1080,
+      "height": 1350,
+      "duration": 6,
+      "audio": "aac"
+    },
+    {
+      "file": "images/2026-09-12-omographs-carousel-6.mp4",
+      "width": 1080,
+      "height": 1350,
+      "duration": 6,
+      "audio": "aac"
+    },
+    {
+      "file": "reels/2026-09-12-omographs-reel.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 14.6,
+      "audio": "aac"
+    }
+  ],
+  "player": {
+    "duration": 14.6,
+    "width": 1080,
+    "height": 1920,
+    "error": null
+  },
+  "gallery": {
+    "tabs": 4,
+    "localLinks": 38,
+    "mobileWidth": 390,
+    "overflow": false,
+    "jsErrors": []
+  }
+}

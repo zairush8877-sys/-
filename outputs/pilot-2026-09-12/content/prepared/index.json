@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "posts": {
+    "2026-09-12-omographs-carousel": {
+      "version": 1,
+      "draftKey": "272d3da5352dd7687999766ed3b6f7de58a25b46b5a65b258d35987a4e3bf376",
+      "builtAt": "2026-09-11T21:51:43.944Z",
+      "media": {
+        "imageUrls": [
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-1.jpg",
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-2.jpg",
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-3.jpg",
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-4.jpg",
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-5.jpg",
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-6.jpg"
+        ],
+        "videoUrls": [
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-1.mp4",
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-2.mp4",
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-3.mp4",
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-4.mp4",
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-5.mp4",
+          "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-6.mp4"
+        ],
+        "music": {
+          "composer": "Kevin MacLeod",
+          "piece": "Carefree",
+          "license": "CC BY 4.0",
+          "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400037",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "attribution": "Carefree — Kevin MacLeod (incompetech.com). CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Фрагмент обрезан и сведён с видео.",
+          "attributionRequired": true
+        }
+      },
+      "files": [
+        {
+          "relative": "images/2026-09-12-omographs-carousel-1.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-1.jpg",
+          "size": 182739,
+          "sha256": "86e440d73ba0eff8c620a0314036c6186f0f86d2b1ade7f045402656764efae2"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-2.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-2.jpg",
+          "size": 162629,
+          "sha256": "e921413c4f70b5d477be0628439b6187b840bbd531f86b126477ae7429b95dec"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-3.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-3.jpg",
+          "size": 127872,
+          "sha256": "e1d19accfe03b6691ec7b2bae13808f438524ae011641184befd8578e9e705ea"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-4.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-4.jpg",
+          "size": 125596,
+          "sha256": "4e67f660d80d2096b7817168ad72cfeaf3e727841f072c143980c7bbb56441cb"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-5.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-5.jpg",
+          "size": 106699,
+          "sha256": "49ad726833416107e3351117019432a14bb3a5771c6f1fe536c9591d1a1088ac"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-6.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-6.jpg",
+          "size": 142384,
+          "sha256": "f2d470e7b86ff8d34df2ec0e013281052c09e3367d9116f216cc91f48ed2f37e"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-1.mp4",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-1.mp4",
+          "size": 261047,
+          "sha256": "03804668d2358724ec4f0ebfb9c7bab09db1fbf626fdc615c1392f1749c5352c"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-2.mp4",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-2.mp4",
+          "size": 231108,
+          "sha256": "324d52b5399c20b3328dc3e87628cd138b222929b4fa6f637f7bf74b83178c62"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-3.mp4",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-3.mp4",
+          "size": 206169,
+          "sha256": "e21b7dd98c8cc824ade512e4545ca99ac225c4183f0ac52d613ca35e96d9ded4"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-4.mp4",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-4.mp4",
+          "size": 202044,
+          "sha256": "020428a0c89b1ef023f532e36ec7e919947d3854883d20df6d5fa6e351a9f917"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-5.mp4",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-5.mp4",
+          "size": 185243,
+          "sha256": "68c0632efc1bfa5715ecf455c111c1b04a185f3089407b9dfc772bccc92d6e31"
+        },
+        {
+          "relative": "images/2026-09-12-omographs-carousel-6.mp4",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/images/2026-09-12-omographs-carousel-6.mp4",
+          "size": 225732,
+          "sha256": "2efe0aa5c295cbc46204c4a8eeb505f0e225c16bb122c832a7e89b5900d9157b"
+        }
+      ]
+    },
+    "2026-09-12-omographs-reel": {
+      "version": 1,
+      "draftKey": "206ea26004b48e907111f8a1e2aeb6e9ef4fb956be90e8d5711fd11936f1e67a",
+      "builtAt": "2026-09-11T21:43:47.858Z",
+      "media": {
+        "videoUrl": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reels/2026-09-12-omographs-reel.mp4",
+        "coverOffsetMs": 13600,
+        "music": {
+          "composer": "Kevin MacLeod",
+          "piece": "Carefree",
+          "license": "CC BY 4.0",
+          "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400037",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "attribution": "Carefree — Kevin MacLeod (incompetech.com). CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/. Фрагмент обрезан и сведён с видео.",
+          "attributionRequired": true
+        },
+        "background": "assets/photos/cotton-krohn.jpg",
+        "lightBg": true
+      },
+      "files": [
+        {
+          "relative": "reels/2026-09-12-omographs-reel.mp4",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reels/2026-09-12-omographs-reel.mp4",
+          "size": 560970,
+          "sha256": "21cc4ebe8b396c66ae6431f9918e0077c97eda14c0530c37e32b1ccdd4f7c3c4"
+        },
+        {
+          "relative": "reels/2026-09-12-omographs-reel-frame.jpg",
+          "url": "https://raw.githubusercontent.com/zairush8877-sys/repetitor/main/content/reels/2026-09-12-omographs-reel-frame.jpg",
+          "size": 155621,
+          "sha256": "c25223f573d4e6bf78457485354740167d2cb777a2b766334dd93ef78c3f8997"
+        }
+      ]
+    }
+  }
+}

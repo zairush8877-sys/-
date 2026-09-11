@@ -24,11 +24,19 @@ on:
 permissions:
   contents: write         # чтобы отметить сторис как опубликованную
 
+# Shared with publish.yml so both jobs persist account state sequentially.
+concurrency:
+  group: instagram-publishing-${{ github.repository }}
+  cancel-in-progress: false
+
 jobs:
   stories:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Start from current main after the preceding publisher has saved statuses.
+          ref: main
 
       - uses: actions/setup-node@v4
         with:

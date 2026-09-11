@@ -28,6 +28,7 @@ const { execFileSync } = require('child_process');
 const { chromium } = require('playwright');
 const ffmpeg = require('ffmpeg-static');
 const FONTS = require('./fonts');
+const LIGHT = require('./light-style');
 
 const BANK = path.join(__dirname, 'content', 'stories.json');
 const OUT = path.join(__dirname, 'content', 'stories');
@@ -49,14 +50,7 @@ const chooseTrack = id => ROTATION.chooseTrack(id, 'story');
 // карточкой и есть смысл ротации. Выбор тем же хешем, что и везде.
 const BG_INDEX = path.join(__dirname, 'content', 'bg', 'index.json');
 function choosePhoto(id) {
-  if (!fs.existsSync(BG_INDEX)) return null;
-  // Разнообразие (правило автора): примерно каждая третья сторис выходит
-  // на чистой палитре «Правки» без снимка — лента не сливается в фоторяд.
-  if (ROTATION.hash(id + 'bgmode') % 3 === 2) return null;
-  const photos = (JSON.parse(fs.readFileSync(BG_INDEX, 'utf8')).backgrounds || [])
-    .filter(b => path.basename(b.file).startsWith('foto-'))
-    .filter(b => fs.existsSync(path.join(__dirname, b.file)));
-  return photos.length ? ROTATION.pickFrom(photos, id + 'bg') : null;
+  return LIGHT.photo(id);
 }
 
 /**
@@ -250,7 +244,7 @@ function whyHtml(s, p, credit, photo) {
     .why { font-size: 46px; line-height: 1.45; max-width: 21ch }`, credit, photo);
 }
 
-function framesFor(s, p) {
+function legacyFramesFor(s, p) {
   const t = chooseTrack(s.id);
   const credit = t && t.composer ? `${t.composer} — ${t.piece || ''}`.trim() : '';
   const photo = choosePhoto(s.id);
@@ -259,7 +253,30 @@ function framesFor(s, p) {
     : [factHtml(s, p, credit, photo), whyHtml(s, p, credit, photo)];
 }
 
-(async () => {
+function framesFor(s) {
+  const track = chooseTrack(s.id);
+  const selected = choosePhoto(s.id);
+  const frames = legacyFramesFor(s, PALETTES[0]);
+  const credit = track?.attributionRequired
+    ? `${track.piece} · Kevin MacLeod / incompetech.com<br>CC BY 4.0 · creativecommons.org/licenses/by/4.0/<br>Фрагмент обрезан и сведён с видео`
+    : track ? `${esc(track.composer)} — ${esc(track.piece)}` : '';
+  return frames.map(html => html.replace('</style>', `
+    body{background:#fcfbf7!important;color:#253b36!important;padding:300px 72px 660px!important}
+    .card{background:none!important;box-shadow:none!important;padding:0!important}
+    .question{font-size:58px!important;margin-bottom:26px!important}
+    .opts{gap:16px!important}.opt{font-size:72px!important;padding:18px 26px!important;border-color:#d8e2d8!important}
+    .or{font-size:30px!important}.hint{font-size:24px!important;margin-top:30px!important}
+    .kicker{font-size:26px!important;letter-spacing:.06em!important;margin-bottom:24px!important}
+    .why{font-size:40px!important;line-height:1.38!important}
+    .photo{position:absolute;left:72px;right:72px;bottom:420px;height:220px;border-radius:12px;overflow:hidden;background:#eef2eb;display:flex;justify-content:center}
+    .photo img{width:100%;height:100%;object-fit:contain}
+    .foot{bottom:276px!important;color:#526a60!important;text-shadow:none!important;font-size:24px!important}
+    .music{display:none!important}
+    .audio-credit{position:absolute;left:72px;right:72px;bottom:320px;text-align:center;font:21px/1.28 ${FONTS.body()};color:#526a60}
+  </style>`).replace('<body>', `<body>${LIGHT.photoHtml(selected)}`).replace('</body>', `<div class="audio-credit">${credit}</div></body>`));
+}
+
+if (require.main === module) (async () => {
   const bank = JSON.parse(fs.readFileSync(BANK, 'utf8'));
   const args = process.argv.slice(2);
   const onlyId = args.find(a => !a.startsWith('--'));
@@ -278,7 +295,7 @@ function framesFor(s, p) {
   fs.mkdirSync(OUT, { recursive: true });
   const preinstalled = '/opt/pw-browsers/chromium';
   const browser = await chromium.launch(
-    fs.existsSync(preinstalled) ? { executablePath: preinstalled } : {});
+    LIGHT.browserOptions());
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
 
   for (const s of targets) {
@@ -286,6 +303,7 @@ function framesFor(s, p) {
     const frames = framesFor(s, p);
     for (const [i, html] of frames.entries()) {
       await page.setContent(html);
+      await LIGHT.fitContent(page);
       await page.screenshot({ path: path.join(OUT, `${s.id}-${i + 1}.jpg`), type: 'jpeg', quality: 92 });
     }
     console.log(`${s.id} [${s.type}]: 2 кадра`);
@@ -302,3 +320,4 @@ function framesFor(s, p) {
 
   console.log(`\nГотово: content/stories/`);
 })();
+module.exports = { framesFor, legacyFramesFor, PALETTES };
